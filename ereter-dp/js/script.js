@@ -3,11 +3,12 @@ const url_ereter_level = 'http://ereter.net/iidxplayerdata/{}/level/12/';
 
 const lamps = ['no-play', 'failed', 'assist', 'easy', 'clear', 'hard', 'ex-hard', 'fullcombo'];
 
-$(document).ready(() => {
+$(document).ready(async () => {
 	$('#player').val(location.search.substring(1));
-	$('#submit').on('click', () => {
-		location.search = '?' + $('#player').val()
-			.replace(/[\D]/g, '');
+	$('#player_form').on('submit', () => {
+		location.search = '?' + $('#player').val().replace(/[\D]/g, '');
+
+		return false;
 	});
 
 	var diff_table = {};
@@ -20,7 +21,7 @@ $(document).ready(() => {
 	var diff_table;
 	var index_table = {}; // song_id: [level_index, song_index]
 
-	access_page(url_ereter_analytics.replace('{}', player), (data) => {
+	await access_page(url_ereter_analytics.replace('{}', player), (data) => {
 		let table_analytics = $($.parseHTML(data)).find('[data-sort=table-perlevel]');
 		diff_table = parse_table(table_analytics, index_table);
 	});
@@ -28,7 +29,7 @@ $(document).ready(() => {
 	if (!diff_table)
 		return;
 
-	access_page(url_ereter_level.replace('{}', player), (data) => {
+	await access_page(url_ereter_level.replace('{}', player), (data) => {
 		let table_level = $($.parseHTML(data)).find('[data-sort=table]');
 		
 		table_level.find('tbody').get().map((tbody) => {
@@ -59,15 +60,18 @@ $(document).ready(() => {
 	$('#content').append(create_table_element(diff_table));
 });
 
-function access_page(url, success) {
-	$.ajax({
-		type: 'GET',
-		url: url,
-		async: false,
-		success: success,
-		error: (xhr) => {
-			alert(xhr.status + ' - ' + xhr.statusText);
-		}
+async function access_page(url, success) {
+	return new Promise((resolve, reject) => {
+		$.ajax({
+			type: 'GET',
+			url: url,
+			async: true,
+			success: success,
+			error: (xhr) => {
+				alert(xhr.status + ' - ' + xhr.statusText);
+			}
+		})
+		.always(() => resolve());
 	});
 }
 
