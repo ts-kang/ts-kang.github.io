@@ -64,7 +64,7 @@ async function access_page(url, success) {
 	return new Promise((resolve, reject) => {
 		$.ajax({
 			type: 'GET',
-			url: url,
+			url: 'https://cors-anywhere.herokuapp.com/' + url,
 			async: true,
 			success: success,
 			error: (xhr) => {
