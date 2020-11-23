@@ -11,6 +11,10 @@ input {
     color: #000000;
 }
 
+a {
+	color: #1997c6;
+}
+
 #content {
 	min-width: 95rem;
 	margin: 0.5rem 0;
