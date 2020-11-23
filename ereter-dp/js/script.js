@@ -79,7 +79,8 @@ $(document).ready(async () => {
     content.append(create_table_element(diff_table));
 
     $('#screenshot').on('click', () => {
-	html2canvas($('#content')[0], { backgroundColor: '#252830', scale: 1 }).then((canvas) => {
+	window.scrollTo(0,0);
+	html2canvas($('#content')[0], { backgroundColor: '#252830' }).then((canvas) => {
 		let a = document.createElement('a');
 		a.download = `user_${player}_${new Date().toISOString().replace(/^([\d-]+)[\w][\d:.]+[\w]$/, '$1')}.png`;
 		a.href = canvas.toDataURL('image/png');
