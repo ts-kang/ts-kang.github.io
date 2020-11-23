@@ -1,0 +1,129 @@
+* {
+    font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #ffffff;
+}
+
+body {
+    background-color: #252830;
+}
+
+input {
+    color: #000000;
+}
+
+#content {
+    background-color: #252830;
+    margin: 1rem 0;
+    padding: 0.5rem;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    margin-bottom: .5rem;
+    font-family: inherit;
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+h3 {
+    font-size: 1.75rem;
+}
+
+.loading {
+    position: relative;
+    left: 0;
+    display: inline-block;
+    white-space: nowrap;
+    height: 2rem;
+    line-height: 2rem;
+}
+
+.progress {
+    margin-top: -2.5rem;
+    width: 0;
+    display: block;
+    overflow: hidden;
+    color: #1997c6;
+    text-shadow: 0 0 1px #1997c6, 0 0 1px #1997c6, 0 0 1px #1997c6, 0 0 1px #1997c6;
+}
+
+/*
+.loading:after {
+    position: absolute;
+    content: attr(value);
+    right: 0;
+    width: 50%;
+    float: right;
+    overflow: hidden;
+    color: #404449;
+}
+*/
+
+.container {
+    position: relative;
+    display: flex;
+    width: 100%;
+    font-size: .8rem;
+    margin-bottom: 2rem;
+}
+
+.level {
+    position: absolute;
+    left: 0;
+    width: 7rem;
+    height: 100%;
+    line-height: 2rem;
+    text-align: center;
+    font-weight: bold;
+    background-color: #404449;
+}
+
+.songs {
+    margin-left: 7.3rem;
+    width: 100%;
+}
+
+.song {
+    position: relative;
+    z-index: 10;
+    float: left;
+    margin: 1px;
+    padding-left: .3rem;
+    width: 12rem;
+    height: 2rem;
+    line-height: 2rem;
+    text-align: left;
+    font-size: .7rem;
+    white-space: nowrap;
+    overflow: hidden;
+    background-color: #293439;
+}
+.normal { color: #21efef; }
+.hyper { color: #efef51; }
+.another { }
+.leggendaria { color: #ce8ef9; }
+
+.lamp {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 100;
+    display: block;
+    float: right;
+    width: .6rem;
+    height: 100%;
+}
+.no-play { }
+.failed { background-color: #dddddd; }
+.assist { background-color: #d4a0ff; }
+.easy { background-color: #8df49b; }
+.clear { background-color: #33ffff; }
+.hard { background-color: #fba8c1; }
+.ex-hard { background-color: #efef51; }
+.fullcombo {
+    background-color: #21efef;
+    background-image: linear-gradient(to bottom, rgb(33, 239, 239), rgb(180, 160, 255));
+}
+
+.aaa { color: #21efef }
+.aa { color: #fba8c1 }
+.a { color: #8df49b }

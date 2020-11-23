@@ -3,98 +3,16 @@
 <head>
 	<meta charset="utf-8">
 	<title>ereter.net에서 가져오는 난이도표</title>
-	<style>
-body {
-	background-color: #252830;
-}
-
-* {
-	font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
-	color: #ffffff;
-}
-
-input {
-	color: #000000;
-}
-
-#content {
-	margin: 15px 0;
-}
-
-.container {
-	position: relative;
-	display: flex;
-	width: 100%;
-	font-size: .8rem;
-	margin-bottom: 30px;
-}
-
-.level {
-	position: absolute;
-	left: 0;
-	width: 100px;
-	height: 100%;
-	line-height: 34px;
-	text-align: center;
-	font-weight: bold;
-	background-color: #404449;
-}
-
-.songs {
-	margin-left: 105px;
-	width: 100%;
-}
-
-.song {
-	position: relative;
-	float: left;
-	margin: 1px;
-	padding-left: 5px;
-	width: 200px;
-	height: 30px;
-	line-height: 30px;
-	text-align: left;
-	font-size: .7rem;
-	white-space: nowrap;
-	overflow: hidden;
-	background-color: #293439;
-}
-.normal { color: #21efef; }
-.hyper { color: #efef51; }
-.another { }
-.leggendaria { color: #ce8ef9; }
-
-.lamp {
-	position: absolute;
-	top: 0;
-	right: 0;
-	display: block;
-	float: right;
-	width: 10px;
-	height: 100%;
-}
-.no-play { }
-.failed { background-color: #dddddd; }
-.assist { background-color: #d4a0ff; }
-.easy { background-color: #8df49b; }
-.clear { background-color: #f4cd8d; }
-.hard { background-color: #fba8c1; }
-.ex-hard { background-color: #efef51; }
-.fullcombo { background-color: #21efef; }
-
-.aaa { color: #21efef }
-.aa { color: #fba8c1 }
-.a { color: #8df49b }
-	</style>
+	<link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-	<h1>ㅁㄴㅇㄻㄴㅇㄹ</h1>
-	<div>라이벌ID: </div>
 	<form id="player_form">
-	<div style="float: left"><input id="player" type="text"></div>
-	<div><input id="submit" type="submit" value="ㅁㄴㅇㄹ"></div>
+	<div style="float: left"><input type="text" id="player" placeholder="IIDX ID"></div>
+	<div><input type="submit" value="Search"></div>
+	<input type="button" id="screenshot" value="Screenshot">
 	</form>
 	<div id="content"></div>
+	<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="js/script.js"></script>
 </body>
