@@ -12,10 +12,8 @@ input {
 }
 
 #content {
-	min-width: 95rem;
-    background-color: #252830;
+	min-width: 82.5rem;
 	margin: 0.5rem 0;
-	margin-left: -0.5rem;
     padding: 0.5rem;
 }
 
