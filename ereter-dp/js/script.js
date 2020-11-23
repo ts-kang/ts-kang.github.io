@@ -75,13 +75,17 @@ $(document).ready(async () => {
 				     , {lamp: lamps[lamps.length - 1]}).lamp;
     });
     sort_table(diff_table);
-    content.html(`<h3 style="margin: 1.5rem 0.3rem">${user_info}</h3>`);
+    content.html(`<h3 style="margin-top: 0">${user_info}</h3>`);
     content.append(create_table_element(diff_table));
 
     $('#screenshot').on('click', () => {
 	html2canvas($('#content')[0]).then((canvas) => {
-	    console.log(canvas);
-	    window.open().document.body.innerHTML = `<img src="${canvas.toDataURL('image/png')}">`;
+		let a = document.createElement('a');
+		a.download = `user_${player}_${new Date().toISOString().replace(/^([\d-]+)[\w][\d:.]+[\w]$/, '$1')}.png`;
+		a.href = canvas.toDataURL('image/png');
+		a.click();
+		a.innerText = 'Download screenshot';
+		$(a).insertAfter('#screenshot');
 	});
     });
 });
@@ -96,7 +100,6 @@ async function access_page(url, success, progress) {
 		return xhr;
 	    },
 	    type: 'GET',
-	    //url: 'https://cors-anywhere.herokuapp.com/' + url,
 	    url: 'https://cors-header-proxy.nnyan.workers.dev/?' + url,
 	    async: true,
 	    success: success,
@@ -112,6 +115,7 @@ async function access_page(url, success, progress) {
 }
 
 function get_progress(e) {
+	// TODO
 }
 
 function create_table_element(diff_table) {

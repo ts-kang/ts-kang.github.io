@@ -12,8 +12,10 @@ input {
 }
 
 #content {
+	min-width: 95rem;
     background-color: #252830;
-    margin: 1rem 0;
+	margin: 0.5rem 0;
+	margin-left: -0.5rem;
     padding: 0.5rem;
 }
 
@@ -63,7 +65,7 @@ h3 {
     display: flex;
     width: 100%;
     font-size: .8rem;
-    margin-bottom: 2rem;
+    margin-top: 2rem;
 }
 
 .level {
