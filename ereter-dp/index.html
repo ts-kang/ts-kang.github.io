@@ -1,20 +1,31 @@
 <!doctype html>
 <html lang="ko">
 <head>
-	<meta charset="utf-8">
-	<title>ereter.net에서 가져오는 난이도표</title>
-	<link href="css/style.css" rel="stylesheet">
+  <meta charset="utf-8">
+  <title>ereter.net에서 가져오는 난이도표</title>
+  <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-	<form id="player_form">
-	<div style="float: left"><input type="text" id="player" placeholder="IIDX ID"></div>
-	<div><input type="submit" value="Search"></div>
-	<input type="button" id="screenshot" value="Screenshot">
-	<div style="margin-top: 1rem">Contact: <a href="https://twitter.com/naynn_n" target="_blank">@naynn_n</a></div>
-	</form>
-	<div id="content"></div>
-	<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script src="js/script.js"></script>
+  <form id="player_form">
+    <div style="float: left"><input type="text" id="player" placeholder="IIDX ID"></div>
+    <div><input type="submit" value="Search"></div>
+    <input type="button" id="screenshot" value="Screenshot">
+    <div style="clear: both; margin: 1rem 0;">Contact: <a href="https://twitter.com/naynn_n" target="_blank">@naynn_n</a></div>
+  </form>
+  <div class="menu">
+    <div class="item" style="cursor: auto; color: #1997c6;">Show</div>
+    <div id="show_ereter_color" class="item">Difficulty Color</div>
+  </div>
+  <div style="clear: both">
+  <div class="menu">
+    <div class="item" style="cursor: auto; color: #1997c6;">Sort</div>
+    <div id="sort_title" class="item">Title</div>
+    <div id="sort_clear_lamp" class="item">Clear Lamp</div>
+    <div id="sort_ereter_difficulty" class="item">Ereter Difficulty</div>
+  </div>
+  <div id="content"></div>
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>

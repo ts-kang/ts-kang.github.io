@@ -12,12 +12,12 @@ input {
 }
 
 a {
-	color: #1997c6;
+    color: #1997c6;
 }
 
 #content {
-	min-width: 95rem;
-	margin: 0.5rem 0;
+    min-width: 88rem;
+    margin: 0.5rem 0;
     padding: 0.5rem;
 }
 
@@ -32,6 +32,45 @@ h3 {
     font-size: 1.75rem;
 }
 
+.menu {
+    display: inline-block;
+    margin: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    line-height: 2;
+}
+
+.item {
+    float: left;
+    margin: 0;
+    padding: 0 1rem;
+    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    border-bottom: 2px solid #434857;
+}
+
+.sort-up, .sort-down {
+    color: #1997c6 !important;
+}
+
+.sort:after, .sort-up:after, .sort-down:after {
+    display: inline-block;
+    content: '';
+    margin-left: 0.5rem;
+    margin-bottom: 0.2rem;
+    width: 0;
+    height: 0;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+}
+.sort-up:after {
+    border-bottom: 5px solid #1997c6;
+}
+.sort-down:after {
+    border-top: 5px solid #1997c6;
+}
+
 .loading {
     position: relative;
     left: 0;
@@ -40,27 +79,6 @@ h3 {
     height: 2rem;
     line-height: 2rem;
 }
-
-.progress {
-    margin-top: -2.5rem;
-    width: 0;
-    display: block;
-    overflow: hidden;
-    color: #1997c6;
-    text-shadow: 0 0 1px #1997c6, 0 0 1px #1997c6, 0 0 1px #1997c6, 0 0 1px #1997c6;
-}
-
-/*
-.loading:after {
-    position: absolute;
-    content: attr(value);
-    right: 0;
-    width: 50%;
-    float: right;
-    overflow: hidden;
-    color: #404449;
-}
-*/
 
 .container {
     position: relative;
@@ -92,8 +110,8 @@ h3 {
     float: left;
     margin: 1px;
     padding-left: .3rem;
-    width: 12rem;
-    height: 2rem;
+    width: 11rem;
+    height: 1.9rem;
     line-height: 2rem;
     text-align: left;
     font-size: .7rem;
@@ -106,6 +124,11 @@ h3 {
 .another { }
 .leggendaria { color: #ce8ef9; }
 
+.title {
+    display: inline-block;
+    transform-origin: left;
+}
+
 .lamp {
     position: absolute;
     top: 0;
@@ -117,15 +140,15 @@ h3 {
     height: 100%;
 }
 .no-play { }
-.failed { background-color: #dddddd; }
+.failed { background-color: #aaaaaa; }
 .assist { background-color: #d4a0ff; }
 .easy { background-color: #8df49b; }
 .clear { background-color: #33ffff; }
 .hard { background-color: #fba8c1; }
 .ex-hard { background-color: #efef51; }
 .fullcombo {
-    background-color: #21efef;
-    background-image: linear-gradient(to bottom, rgb(33, 239, 239), rgb(180, 160, 255));
+    background-color: #21aaef;
+    background-image: linear-gradient(to bottom, rgb(33, 239, 239), rgb(255, 160, 230));
 }
 
 .aaa { color: #21efef }
