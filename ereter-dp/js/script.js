@@ -156,7 +156,7 @@ function table_render(diff_table, user_info) {
             .map((song) => `
                 <div class="song"` +
                  (config.show.ereter_color
-                  ? ` style="background-color: rgba(${song.recommend_color[0].join(', ')}, 0.35)"`
+                  ? ` style="background-color: rgba(${song.recommend_color[0].join(', ')}, 0.3)"`
                   : '')
                 + `>
                     <span class="title ${song.difficulty.toLowerCase()}">${song.title}</span>
