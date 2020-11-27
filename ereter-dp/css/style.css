@@ -33,15 +33,25 @@ h3 {
 }
 
 .menu {
-    display: inline-block;
+    display: flex;
     margin: 0.5rem;
     font-size: 0.9rem;
     font-weight: 700;
     line-height: 2;
 }
 
-.item {
-    float: left;
+.menu .name {
+    margin: 0;
+    padding: 0 1rem;
+    width: 4rem;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    color: #1997c6;
+    border-bottom: 2px solid #434857;
+}
+
+.menu .item {
     margin: 0;
     padding: 0 1rem;
     cursor: pointer;
@@ -50,11 +60,12 @@ h3 {
     border-bottom: 2px solid #434857;
 }
 
-.sort-up, .sort-down {
-    color: #1997c6 !important;
+.menu .enabled {
+    color: #1997c6;
+    border-bottom: 2px solid #1997c6;
 }
 
-.sort:after, .sort-up:after, .sort-down:after {
+.item:after, .sort-up:after, .sort-down:after {
     display: inline-block;
     content: '';
     margin-left: 0.5rem;
@@ -89,53 +100,66 @@ h3 {
 }
 
 .level {
-    position: absolute;
-    left: 0;
+    position: relative;
+    z-index: 10;
+    margin: 1px;
+    margin-right: .3rem;
+    align-self: stretch;
     width: 7rem;
-    height: 100%;
-    line-height: 2rem;
+    height: auto;
+    line-height: 1.9rem;
     text-align: center;
-    font-weight: bold;
+    font-weight: 700;
     background-color: #404449;
 }
 
 .songs {
-    margin-left: 7.3rem;
+    display: flex;
+    flex-wrap: wrap;
     width: 100%;
 }
 
 .song {
     position: relative;
     z-index: 10;
-    float: left;
     margin: 1px;
     padding-left: .3rem;
     width: 11rem;
     height: 1.9rem;
-    line-height: 2rem;
+    line-height: 1.9rem;
     text-align: left;
     font-size: .7rem;
     white-space: nowrap;
     overflow: hidden;
-    background-color: #293439;
+    background-color: #383847;
 }
-.normal { color: #21efef; }
-.hyper { color: #efef51; }
+.normal { color: #21efef !important; }
+.hyper { color: #efef51 !important; }
 .another { }
-.leggendaria { color: #ce8ef9; }
+.leggendaria { color: #ce8ef9 !important; }
 
 .title {
     display: inline-block;
     transform-origin: left;
 }
 
-.lamp {
+.level .right, .song .right {
     position: absolute;
     top: 0;
     right: 0;
     z-index: 100;
-    display: block;
-    float: right;
+    display: flex;
+    justify-content: flex-end;
+    height: 100%;
+}
+
+.level div {
+    display: flex;
+    justify-content: center;
+    margin-top: -.6rem;
+}
+
+.lamp {
     width: .6rem;
     height: 100%;
 }
@@ -151,6 +175,26 @@ h3 {
     background-image: linear-gradient(to bottom, rgb(33, 239, 239), rgb(255, 160, 230));
 }
 
-.aaa { color: #21efef }
-.aa { color: #fba8c1 }
-.a { color: #8df49b }
+.rank {
+    padding-right: 3px;
+    vertical-align: middle;
+    color: #dddddd;
+    text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;
+    transform-origin: right;
+    font-size: .6rem;
+    line-height: 1.9rem;
+}
+.level .rank {
+    padding: 0 2px;
+}
+.aaa {
+    color: #21efef !important;
+    transform: scale(0.8, 1);
+}
+.aa {
+    color: #fba8c1 !important;
+    transform: scale(0.9, 1);
+}
+.a {
+    color: #8df49b !important;
+}
