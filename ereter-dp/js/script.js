@@ -73,7 +73,7 @@ $(document).ready(async () => {
     $('#screenshot').on('click', () => {
         $('#download_screenshot').remove();
         window.scrollTo(0,0);
-        html2canvas($('#content')[0], { backgroundColor: '#252830' }).then((canvas) => {
+        html2canvas($('#content')[0], { backgroundColor: '#252830', letterRendering: true }).then((canvas) => {
             let a = document.createElement('a');
             a.id = 'download_screenshot';
             a.target = '_blank';
