@@ -73,7 +73,7 @@ $(document).ready(async () => {
     $('#screenshot').on('click', () => {
         $('#download_screenshot').remove();
         window.scrollTo(0,0);
-        html2canvas($('#content')[0], { backgroundColor: '#252830', letterRendering: true }).then((canvas) => {
+        html2canvas($('#content')[0], { backgroundColor: '#252830' }).then((canvas) => {
             let a = document.createElement('a');
             a.id = 'download_screenshot';
             a.target = '_blank';
@@ -161,12 +161,12 @@ function table_render(diff_table, user_info) {
                  config_(config.show.title,
                          `<span class="title ${song.difficulty.toLowerCase()}">${song.title}</span>`) +
                  '<div class="right">' +
-                 config_(config.show.clear_lamp,
-                         `<span class="lamp ${song.lamp}"></span>`) +
-                 config_(config.show.percentage,
-                         `<span class="rank ${song.rank.toLowerCase()}" style="transform: scale(0.9, 1)">${parseInt(song.percentage)}%</span>`) +
                  config_(config.show.rank,
                          `<span class="rank ${song.rank.toLowerCase()}">${song.rank}</span>`) +
+                 config_(config.show.percentage,
+                         `<span class="rank ${song.rank.toLowerCase()}" style="transform: scaleX(0.9)">${parseInt(song.percentage)}%</span>`) +
+                 config_(config.show.clear_lamp,
+                         `<span class="lamp ${song.lamp}"></span>`) +
                  '</div></div>')
             .join('');
         let container = $(`
@@ -179,7 +179,7 @@ function table_render(diff_table, user_info) {
                  config_(config.show.rank,
                          `<span class="rank ${level_table.rank.toLowerCase()}">${level_table.rank}</span>`) +
                  config_(config.show.percentage,
-                         `<span class="rank ${level_table.rank.toLowerCase()}">${parseInt(level_table.percentage)}%</span>`) +
+                         `<span class="rank ${level_table.rank.toLowerCase()}" style="transform: none">${parseInt(level_table.percentage)}%</span>`) +
                 `</div>
                 <span class="right">` +
                  config_(config.show.clear_lamp,
@@ -202,7 +202,7 @@ function table_render(diff_table, user_info) {
         let div_width = $(song).width() - ($($(song).find('.right')).width() || 0) - 3;
         if (title.width() > div_width) {
             let width_scale = Math.max(div_width / title.width(), 0.6);
-            title.css('transform', `scale(${width_scale}, 1)`);
+            title.css('transform', `scaleX(${width_scale})`);
         }
     });
 }
