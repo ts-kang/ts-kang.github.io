@@ -16,6 +16,23 @@ a:hover {
     text-decoration: underline;
 }
 
+a.ext:after {
+    font-family: "fontello";
+    font-style: normal;
+    font-weight: normal;
+    speak: never;
+    font-variant: normal;
+    text-transform: none;
+    text-decoration: none;
+    line-height: 1em;
+    margin-left: .5em;
+    font-size: 90%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #1997c6;
+    content: '\f08e';
+}
+
 input[type=text] {
     display: block;
     width: 100%;
