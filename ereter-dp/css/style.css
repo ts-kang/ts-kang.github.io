@@ -253,7 +253,7 @@ h3 {
     vertical-align: middle;
     color: #dddddd;
     text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;
-    transform-origin: right;
+    transform-origin: center;
     font-size: .6rem;
     line-height: 1.9rem;
 }
