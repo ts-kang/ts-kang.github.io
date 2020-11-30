@@ -1,24 +1,79 @@
-* {
+*:not(button) {
     font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #ffffff;
 }
 
 body {
     background-color: #252830;
-}
-
-input {
-    color: #000000;
+    color: #ffffff;
 }
 
 a {
     color: #1997c6;
+    text-decoration: none;
 }
 
-#content {
-    min-width: 88rem;
-    margin: 0.5rem 0;
-    padding: 0.5rem;
+a:hover {
+    text-decoration: underline;
+}
+
+input[type=text] {
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: .9rem;
+    line-height: 1.4;
+    color: #fff;
+    background-color: #434857;
+    background-clip: padding-box;
+    border: 1px solid #434857;
+    border-radius: .25rem;
+    box-shadow: 0;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+input[type=text]:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #71cced;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(25,151,198,.25);
+}
+
+button {
+    display: inline-block;
+    font-weight: 400;
+    cursor: pointer;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: .9rem;
+    line-height: 1.4;
+    border-radius: .25rem;
+    color: #1997c6;
+    background-color: transparent;   
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+button:hover {
+    color: #106382;
+}
+
+button.button {
+    color: #ffffff;
+    background-color: #1997c6;
+    background-clip: padding-box;
+    border: 1px solid #1997c6;
+    border-radius: .25rem;
+    box-shadow: 0;
+}
+
+button.button:hover {
+    color: #cfd2da;
+    background-color: #106382;
+    border-color: #106382;
 }
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
@@ -32,9 +87,27 @@ h3 {
     font-size: 1.75rem;
 }
 
+#content {
+    min-width: 88rem;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+}
+
+.header {
+    margin: .3rem;
+}
+
+.links {
+    margin: 2rem .3rem;
+}
+
+.links div {
+    margin: .5rem 0;
+}
+
 .menu {
     display: flex;
-    margin: 0.5rem;
+    margin: .5rem .2rem;
     font-size: 0.9rem;
     font-weight: 700;
     line-height: 2;
@@ -148,8 +221,6 @@ h3 {
     top: 0;
     right: 0;
     z-index: 100;
-    display: flex;
-    justify-content: flex-end;
     height: 100%;
 }
 
@@ -160,6 +231,7 @@ h3 {
 }
 
 .lamp {
+    float: right;
     width: .6rem;
     height: 100%;
 }
@@ -176,7 +248,8 @@ h3 {
 }
 
 .rank {
-    padding-right: 3px;
+    float: right;
+    margin-right: 3px;
     vertical-align: middle;
     color: #dddddd;
     text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;
@@ -184,8 +257,13 @@ h3 {
     font-size: .6rem;
     line-height: 1.9rem;
 }
+.rank:nth-child(2) {
+    margin-left: -2px;
+}
 .level .rank {
-    padding: 0 2px;
+    float: none;
+    margin: 0;
+    margin-left: 3px;
 }
 .aaa {
     color: #21efef !important;

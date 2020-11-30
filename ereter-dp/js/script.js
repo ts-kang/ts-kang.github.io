@@ -76,13 +76,21 @@ $(document).ready(async () => {
         html2canvas($('#content')[0], { backgroundColor: '#252830' }).then((canvas) => {
             let a = document.createElement('a');
             a.id = 'download_screenshot';
-            canvas.toBlob((blob) => {
-                a.href = URL.createObjectURL(blob);
-                a.download = 'user_' + player + '_' + new Date().toISOString().replace(/^([\d-]+)[\w][\d:.]+[\w]$/, '$1') + '.png';
-                a.click();
-                a.innerText = 'Download screenshot';
+            a.target = '_blank';
+            a.style = 'display: block';
+            a.innerText = 'Download link';
+            if (/(iPad|iPhone|iPod)/g.test(navigator.userAgent)) {
+                a.href = canvas.toDataURL('image/png');
                 $(a).insertAfter('#screenshot');
-            });
+                a.click();
+            } else {
+                canvas.toBlob((blob) => {
+                    a.download = 'user_' + player + '_' + new Date().toISOString().replace(/^([\d-]+)[\w][\d:.]+[\w]$/, '$1') + '.png';
+                    a.href = URL.createObjectURL(blob);
+                    $(a).insertAfter('#screenshot');
+                    a.click();
+                }, 'image/png');
+            }
         });
     });
 
@@ -153,12 +161,12 @@ function table_render(diff_table, user_info) {
                  config_(config.show.title,
                          `<span class="title ${song.difficulty.toLowerCase()}">${song.title}</span>`) +
                  '<div class="right">' +
-                 config_(config.show.rank,
-                         `<span class="rank ${song.rank.toLowerCase()}">${song.rank}</span>`) +
-                 config_(config.show.percentage,
-                         `<span class="rank ${song.rank.toLowerCase()}" style="transform: scale(0.9, 1)">${parseInt(song.percentage)}%</span>`) +
                  config_(config.show.clear_lamp,
                          `<span class="lamp ${song.lamp}"></span>`) +
+                 config_(config.show.percentage,
+                         `<span class="rank ${song.rank.toLowerCase()}" style="transform: scale(0.9, 1)">${parseInt(song.percentage)}%</span>`) +
+                 config_(config.show.rank,
+                         `<span class="rank ${song.rank.toLowerCase()}">${song.rank}</span>`) +
                  '</div></div>')
             .join('');
         let container = $(`
@@ -193,7 +201,7 @@ function table_render(diff_table, user_info) {
         let title = $(song).find('.title');
         let div_width = $(song).width() - ($($(song).find('.right')).width() || 0) - 3;
         if (title.width() > div_width) {
-            let width_scale = Math.max(div_width / title.width(), 0.5);
+            let width_scale = Math.max(div_width / title.width(), 0.6);
             title.css('transform', `scale(${width_scale}, 1)`);
         }
     });
