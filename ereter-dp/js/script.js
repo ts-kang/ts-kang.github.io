@@ -73,13 +73,13 @@ $(document).ready(async () => {
     $('#screenshot').on('click', () => {
         $('#download_screenshot').remove();
         window.scrollTo(0,0);
-        html2canvas($('#content')[0], { backgroundColor: '#252830', letterRendering: true }).then((canvas) => {
+        html2canvas($('#content')[0], { backgroundColor: '#252830' }).then((canvas) => {
             let a = document.createElement('a');
             a.id = 'download_screenshot';
-            a.target = '_blank';
             a.style = 'display: block';
             a.innerText = 'Download link';
             if (/(iPad|iPhone|iPod)/g.test(navigator.userAgent)) {
+                a.target = '_blank';
                 a.href = canvas.toDataURL('image/png');
                 $(a).insertAfter('#screenshot');
                 a.click();

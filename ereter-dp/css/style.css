@@ -256,6 +256,7 @@ h3 {
     transform-origin: right;
     font-size: .6rem;
     line-height: 1.9rem;
+    overflow: hidden;
 }
 .rank:nth-child(2) {
     margin-left: -2px;
