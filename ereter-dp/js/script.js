@@ -74,17 +74,17 @@ $(document).ready(async () => {
         $('#download_screenshot').remove();
         window.scrollTo(0,0);
         html2canvas($('#content')[0], { backgroundColor: '#252830' }).then((canvas) => {
-            let a = document.createElement('a');
-            a.id = 'download_screenshot';
-            a.style = 'display: block';
-            a.innerText = 'Download link';
             if (/(iPad|iPhone|iPod)/g.test(navigator.userAgent)) {
-                a.target = '_blank';
-                a.href = canvas.toDataURL('image/png');
-                $(a).insertAfter('#screenshot');
-                a.click();
+                let img = new Image();
+                img.src = canvas.toDataURL('image/png');
+                let new_tab = window.open('');
+                setTimeout(() => new_tab.document.write(img.outerHTML), 0);
             } else {
                 canvas.toBlob((blob) => {
+                    let a = document.createElement('a');
+                    a.id = 'download_screenshot';
+                    a.style = 'display: block';
+                    a.innerText = 'Download link';
                     a.download = 'user_' + player + '_' + new Date().toISOString().replace(/^([\d-]+)[\w][\d:.]+[\w]$/, '$1') + '.png';
                     a.href = URL.createObjectURL(blob);
                     $(a).insertAfter('#screenshot');
