@@ -163,7 +163,7 @@ function table_render(diff_table, user_info) {
                          ` style="background-image: linear-gradient(to right, rgba(${song.recommend_color[0].join(', ')}, 0.3) 25%, rgba(${song.recommend_color[0].join(', ')}, 0.1) 100%)"`) +*/
                  '>' +
                  config_(config.show.title,
-                         `<a href="http://ereter.net/iidxranking/${song.id}/${user_info.id}" target="_blank" class="title ${song.difficulty.toLowerCase()}">${song.title}</a>`) +
+                         `<a href="http://ereter.net/iidxranking/${song.id}/${user_info.id}/" target="_blank" class="title ${song.difficulty.toLowerCase()}">${song.title}</a>`) +
                  '<div class="right">' +
                  config_(config.show.rank,
                          `<span class="rank ${song.rank.toLowerCase()}">${song.rank}</span>`) +
