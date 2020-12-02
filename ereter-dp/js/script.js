@@ -55,7 +55,7 @@ $(document).ready(async () => {
         let html = $($.parseHTML(data));
         let user = html.find('.content > h3');
         user_info.id = player;
-        user_info.username = user.text().replace(/ - .*/, '');
+        user_info.username = user.text().replace(/ - .*$/, '');
         user_info.recommend = user.find('span').text().substring(1);
         user_info.recommend_color = user.find('span').css('color');
         let table_analytics = html.find('[data-sort=table-perlevel]');
