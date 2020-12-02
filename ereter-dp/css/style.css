@@ -39,7 +39,7 @@ input[type=text] {
     padding: .375rem .75rem;
     font-size: .9rem;
     line-height: 1.4;
-    color: #fff;
+    color: #ffffff;
     background-color: #434857;
     background-clip: padding-box;
     border: 1px solid #434857;
@@ -223,15 +223,16 @@ h3 {
     overflow: hidden;
     background-color: #383847;
 }
+
+.title {
+    display: inline-block;
+    color: #ffffff;
+    transform-origin: left;
+}
 .normal { color: #21efef !important; }
 .hyper { color: #efef51 !important; }
 .another { }
 .leggendaria { color: #ce8ef9 !important; }
-
-.title {
-    display: inline-block;
-    transform-origin: left;
-}
 
 .level .right, .song .right {
     position: absolute;

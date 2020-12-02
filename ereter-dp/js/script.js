@@ -39,7 +39,7 @@ $(document).ready(async () => {
 
     var diff_table = [];
     var index_table = {}; // song_id: [level_index, song_index]
-    var user_info = '';
+    var user_info = {};
 
     Object.keys(config.show).forEach((opt) => {
         $('#show_' + opt).on('click', function () {
@@ -53,7 +53,11 @@ $(document).ready(async () => {
     content.html('<h3 class="loading">Loading... (1/2)</h3>');
     await access_page(url_ereter_analytics.replace('{}', player), (data) => {
         let html = $($.parseHTML(data));
-        user_info = html.find('.content > h3').html();
+        let user = html.find('.content > h3');
+        user_info.id = player;
+        user_info.username = user.text().replace(/ - .*/, '');
+        user_info.recommend = user.find('span').text().substring(1);
+        user_info.recommend_color = user.find('span').css('color');
         let table_analytics = html.find('[data-sort=table-perlevel]');
         table_parse(diff_table, table_analytics, index_table);
     });
@@ -159,7 +163,7 @@ function table_render(diff_table, user_info) {
                          ` style="background-image: linear-gradient(to right, rgba(${song.recommend_color[0].join(', ')}, 0.3) 25%, rgba(${song.recommend_color[0].join(', ')}, 0.1) 100%)"`) +*/
                  '>' +
                  config_(config.show.title,
-                         `<span class="title ${song.difficulty.toLowerCase()}">${song.title}</span>`) +
+                         `<a href="http://ereter.net/iidxranking/${song.id}/${user_info.id}" target="_blank" class="title ${song.difficulty.toLowerCase()}">${song.title}</a>`) +
                  '<div class="right">' +
                  config_(config.show.rank,
                          `<span class="rank ${song.rank.toLowerCase()}">${song.rank}</span>`) +
@@ -194,7 +198,7 @@ function table_render(diff_table, user_info) {
     });
 
     $('#content')
-        .html(`<h3 style="margin-top: 0">${user_info}</h3>`)
+        .html(`<h3 style="margin-top: 0">${user_info.username} - <span style="color: ${user_info.recommend_color}">★${user_info.recommend}</span></h3>`)
         .append(table_object);
 
     $('.song').each((_, song) => {
